@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url("https://i.imgur.com/b9r5sEL.jpg") bottom center;
+  background: url("./Assets/b9r5sEL.jpg") bottom center;
   background-size: cover;
 }
 
@@ -33,7 +33,9 @@ html {
   text-shadow: 0 0 0.5rem black;
 }
 
-.playing {
+.playing
+/* .key:hover */
+ {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
