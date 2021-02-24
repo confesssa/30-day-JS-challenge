@@ -1,8 +1,3 @@
-// Get your shorts on - this is an array workout!
-    // ## Array Cardio Day 1
-
-    // Some data we can work with
-
     const inventors = [
       { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
       { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -25,20 +20,36 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
-    // Array.prototype.filter()
+
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+    console.log("List of inventors who were born in the 1500's");
+    console.table(fifteen);
 
-    // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    console.log('An array of the inventors first and last names');
+    console.log(fullNames);
 
-    // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const ordered = inventors.sort((firstPerson, secondPerson) => (firstPerson.year > secondPerson.year) ? 1 : -1);
+      console.log('The inventors sorted by birthdate, oldest to youngest');
+    console.table(ordered);
 
-    // Array.prototype.reduce()
+
     // 4. How many years did all the inventors live all together?
+    const totalYears = inventors.reduce((sum, inventor) => sum + inventor.passed - inventor.year, 0);
+    console.log('How many years did all the inventors live all together?');
+    console.log(totalYears);
 
     // 5. Sort the inventors by years lived
+    const oldest = inventors.sort((a, b) => {
+      const lastGuy = a.passed - a.year;
+      const nextGuy = b.passed - b.year;
+      return lastGuy > nextGuy ? -1 : 1;
+    });
+    console.log('The inventors sorted by years lived');
+    console.table(oldest);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
